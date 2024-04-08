@@ -1,0 +1,31 @@
+import React, { useEffect, useState } from "react";
+
+const remainingTime = {
+  seconds: "00",
+  minutes: "00",
+  hours: "00",
+};
+
+const countdownTimer = () => {
+  const [time, setTime] = useState(remainingTime);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {updateTime()}, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  function updateTime() {}
+  return (
+    <div>
+      <p>Time Left:</p>
+      <span>{time.hours}</span>
+      <span>h</span>
+      <span>{time.minutes}</span>
+      <span>m</span>
+      <span>{time.seconds}</span>
+      <span>s</span>
+    </div>
+  );
+};
+
+export default Timer;
